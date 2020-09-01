@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use File;
 class PageController extends Controller
@@ -19,7 +20,11 @@ class PageController extends Controller
     }
     public function index()
     {
+        if(Auth::user()->is_admin==1){
         return view('pages.index');
+        }else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -29,7 +34,11 @@ class PageController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->is_admin==1){
         return view('pages.create');
+          }else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -97,7 +106,11 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
+        if(Auth::user()->is_admin==1){
         return view('pages.edit',compact('page'));
+          }else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -154,7 +167,11 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
+        if(Auth::user()->is_admin==1){
         $page->delete();
         return redirect(route('pages.index'))->with(['message'=>'Page deleted Successfully.']);
+          }else{
+            return redirect()->back();
+        }
     }
 }

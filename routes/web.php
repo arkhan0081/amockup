@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','FrontEndController@home')->name('home');
-Route::get('/contact-us','FrontEndController@contact')->name('contact');
+Route::get('/','FrontEndController@home')->name('home')->middleware('auth');
+Route::get('/contact-us','FrontEndController@contact')->name('contact')->middleware('auth');
 Route::post('/SendMail','FrontEndController@SendMail')->name('contactUs');
 
 Route::post('test', 'HomeController@test');

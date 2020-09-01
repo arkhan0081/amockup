@@ -11,12 +11,12 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
     public  function  show(){
-    
+
         if(Auth::user()->is_admin == 1) {
             $settings = Setting::all();
             return view('settings',compact('settings'));
         }else{
-            return redirect('home');
+            return redirect('/');
         }
     }
     public function update(Request $request){

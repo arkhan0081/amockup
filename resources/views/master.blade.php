@@ -45,7 +45,7 @@
             <ul>
                 <li class="active"><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
-                @if(\Auth::user())
+                @if(\Auth::user() && \Auth::user()->is_admin==1)
                     <li><a href="{{route('pages.create')}}">Create Page</a></li>
                     <li><a href="{{route('pages.index')}}">All Pages</a></li>
                     <li><a href="{{route('settings.show')}}">Settings</a></li>
