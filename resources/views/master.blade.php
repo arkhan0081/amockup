@@ -45,6 +45,21 @@
             <ul>
                 <li class="active"><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
+                @if(\Auth::user())
+                    <li><a href="{{route('pages.create')}}">Create Page</a></li>
+                    <li><a href="{{route('pages.index')}}">All Pages</a></li>
+                    <li><a href="{{route('settings.show')}}">Settings</a></li>
+                    <li><a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                @endif
             </ul>
         </nav><!-- .nav-menu -->
 
@@ -193,7 +208,7 @@
   fbq('track', '{{Setting::get('SCRIPT_FB_EVENT')}}');
 </script>
 <noscript>
-  <img height="1" width="1" style="display:none" 
+  <img height="1" width="1" style="display:none"
        src="https://www.facebook.com/tr?id={{Setting::get('SCRIPT_FB')}}&ev={{Setting::get('SCRIPT_FB_EVENT')}}&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
