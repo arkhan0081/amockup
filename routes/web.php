@@ -21,6 +21,7 @@ Route::post('test', 'HomeController@test');
 
 Route::get('/settings', 'SettingController@show')->name('settings.show');
 Route::post('update-settings', 'SettingController@update')->name('settings.update');
+Route::get('/ajax', 'FrontEndController@ajax')->name('ajax');
 
 
 Auth::routes();

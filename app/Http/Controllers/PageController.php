@@ -19,7 +19,7 @@ class PageController extends Controller
     }
     public function index()
     {
-        //
+        return view('pages.index');
     }
 
     /**
@@ -154,6 +154,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect(route('pages.index'))->with(['message'=>'Page deleted Successfully.']);
     }
 }

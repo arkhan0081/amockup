@@ -1,4 +1,5 @@
 @extends('master')
+@section('title','Settings')
 @section('content')
     <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact">
