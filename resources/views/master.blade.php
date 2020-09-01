@@ -45,20 +45,6 @@
             <ul>
                 <li class="active"><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
-                @if(\Auth::user())
-                    <li><a href="{{route('pages.create')}}">Create Page</a></li>
-                    <li><a href="{{route('pages.index')}}">All Pages</a></li>
-                     <li><a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                    </li>
-                @endif
             </ul>
         </nav><!-- .nav-menu -->
 
@@ -183,9 +169,36 @@
     };
     CKEDITOR.replace( 'detailed_content' );
 </script>
+
 @yield('scripts')
-{!! Setting::get('SCRIPT_FB') !!}
-{!! Setting::get('SCRIPT_FB') !!}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{Setting::get('SCRIPT_GOOGLE')}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{Setting::get('SCRIPT_GOOGLE')}}');
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '{{Setting::get('SCRIPT_FB')}}');
+  fbq('track', '{{Setting::get('SCRIPT_FB_EVENT')}}');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" 
+       src="https://www.facebook.com/tr?id={{Setting::get('SCRIPT_FB')}}&ev={{Setting::get('SCRIPT_FB_EVENT')}}&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+
 </body>
 
 </html>

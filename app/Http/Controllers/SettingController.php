@@ -11,19 +11,20 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
     public  function  show(){
+    
         if(Auth::user()->is_admin == 1) {
-            return view('settings');
+            $settings = Setting::all();
+            return view('settings',compact('settings'));
         }else{
             return redirect('home');
         }
     }
     public function update(Request $request){
-
         Setting::set('SEND_MAIL_TO',$request->SEND_MAIL_TO);
         Setting::set('SCRIPT_FB',$request->SCRIPT_FB);
+        Setting::set('SCRIPT_FB_EVENT',$request->SCRIPT_FB_EVENT);
         Setting::set('SCRIPT_GOOGLE',$request->SCRIPT_GOOGLE);
         Setting::save();
-        return view('settings');
-
+        return redirect()->back();
     }
 }

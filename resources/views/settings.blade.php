@@ -18,41 +18,29 @@
                 @endif
 
                 <div class="col-lg-12 mt-5">
-                    <form method="post" action="{{route('settings.update')}}" role="form" class="php-email-form">
+                    <form action="{{route('settings.update')}}" method="post" id="formSettings" class="php-email-form" >
                         @csrf
-                        <div class="form-group {{ $errors->has('SEND_MAIL_TO') ? 'has-error': ''}} ">
+                        <div class="form-group">
                             <label>SEND EMAIL TO</label>
-                            <input type="email" class="form-control" name="SEND_MAIL_TO"
-                                   value="{{old('SEND_MAIL_TO',Setting::get('SEND_MAIL_TO'))}}">
-                            @if($errors->has('SEND_MAIL_TO'))
-                                <span class="help-block">
-					       <strong>{{ $errors->first('SEND_MAIL_TO') }}</strong>
-				               </span>
-                            @endif
+                            <input type="email" class="form-control" name="SEND_MAIL_TO" value="{{\Setting::get('SEND_MAIL_TO')}}">
                         </div>
-                        <div class="form-group {{ $errors->has('SCRIPT_FB') ? 'has-error': ''}} ">
-                            <label>FACE BOOK PIXEL SCRIPT</label>
-                            <textarea type="text" class="form-control" name="SCRIPT_FB">{{Setting::get('SCRIPT_FB')}}</textarea>
-                        @if($errors->has('SCRIPT_FB'))
-                                <span class="help-block">
-					       <strong>{{ $errors->first('SCRIPT_FB') }}</strong>
-				               </span>
-                            @endif
+                        <div class="form-group">
+                            <label>FACE BOOK PIXEL ID</label>
+                            <input type="text" class="form-control" id="SCRIPT_FB" name="SCRIPT_FB" value="{{\Setting::get('SCRIPT_FB') }}">
                         </div>
-                        <div class="form-group {{ $errors->has('SCRIPT_GOOGLE') ? 'has-error': ''}} ">
+                         <div class="form-group">
+                            <label>FACE BOOK PIXEL Event Name</label>
+                            <input type="text" class="form-control" id="SCRIPT_FB_EVENT" name="SCRIPT_FB_EVENT" value="{{ \Setting::get('SCRIPT_FB_EVENT') }}">
+                        </div>
+                        <div class="form-group">
                             <label>GOOGLE ANALYTICS CODE</label>
-                            <textarea type="text" class="form-control" name="SCRIPT_GOOGLE">{{Setting::get('SCRIPT_GOOGLE')}}</textarea>
-                            @if($errors->has('SCRIPT_GOOGLE'))
-                                <span class="help-block">
-					       <strong>{{ $errors->first('SCRIPT_GOOGLE') }}</strong>
-				               </span>
-                            @endif
+                            <input type="text" class="form-control" id="SCRIPT_GOOGLE" name="SCRIPT_GOOGLE" value="{{ \Setting::get('SCRIPT_GOOGLE') }}">
                         </div>
 
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success click">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -62,4 +50,9 @@
         </div>
     </section>
 
-@stop
+@endsection
+@section('scripts')
+<script>
+
+</script>
+@endsection

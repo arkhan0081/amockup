@@ -70,7 +70,7 @@
             </div>
 
             <div class="col-lg-12 mt-5">
-                <form action="{{route('contactUs')}}" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+                <form action="{{route('contactUs')}}" method="post" role="form" class="php-email-form">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">

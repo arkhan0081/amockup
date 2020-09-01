@@ -17,10 +17,14 @@ Route::get('/','FrontEndController@home')->name('home');
 Route::get('/contact-us','FrontEndController@contact')->name('contact');
 Route::post('/SendMail','FrontEndController@SendMail')->name('contactUs');
 
+Route::post('test', 'HomeController@test');
+
+Route::get('/settings', 'SettingController@show')->name('settings.show');
+Route::post('update-settings', 'SettingController@update')->name('settings.update');
+
+
 Auth::routes();
 Auth::routes(['register' => false]);
 Route::resource('pages','PageController');
 Route::get('/home', 'HomeController@index')->name('index');
-Route::get('/ajax', 'FrontEndController@ajax')->name('ajax');
-Route::get('/settings', 'SettingController@show')->name('settings.show');
-Route::post('/settings', 'SettingController@update')->name('settings.update');
+
