@@ -82,7 +82,15 @@
                                     </span>
                             @enderror
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="form-group">
+                            <label for="name">Custom JS</label>
+                            <textarea class="form-control" id="other_js" name="other_js" rows="10">{!! $page->other_js !!}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Custom CSS</label>
+                            <textarea class="form-control" id="other_css" name="other_css" rows="10">{!! $page->other_css !!}</textarea>
+                        </div>
+                        <div class="text-center"><button type="submit">Update Page</button></div>
                     </form>
                 </div>
 

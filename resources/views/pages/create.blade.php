@@ -89,7 +89,7 @@
                             <label for="name">Custom CSS</label>
                             <textarea class="form-control" id="other_css" name="other_css" rows="10"></textarea>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="text-center"><button type="submit">Create Page</button></div>
                     </form>
                 </div>
 
