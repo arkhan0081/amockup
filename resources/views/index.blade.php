@@ -60,6 +60,7 @@
 
 @endsection
 @section('scripts')
+    <script>
     {!! $page->other_js !!}
-
+    </script>
 @endsection

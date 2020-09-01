@@ -25,8 +25,9 @@
     <!-- Template Main CSS File -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <style>
 @yield('css')
-
+    </style>
 </head>
 
 <body>
@@ -184,8 +185,9 @@
     };
     CKEDITOR.replace( 'detailed_content' );
 </script>
-
+<script>
 @yield('scripts')
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{Setting::get('SCRIPT_GOOGLE')}}"></script>
 <script>
