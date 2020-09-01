@@ -38,7 +38,7 @@
                                     <option value="1">Indexing Allowed</option>
                                     <option value="0">Indexing Disabled</option>
                                 </select>
-                                 @error('index_allowed')
+                                @error('index_allowed')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -48,29 +48,29 @@
                         <div class="form-group">
                             <label for="name">Meta Description</label>
                             <input type="text" class="form-control @error('meta_description') is-invalid @enderror" name="meta_description" id="meta_description"  />
-                              @error('meta_description')
-                                <span class="invalid-feedback" role="alert">
+                            @error('meta_description')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="name">Slider Image</label>
                             <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" />
-                              @error('image')
-                                <span class="invalid-feedback" role="alert">
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="name">Slider Text</label>
                             <input type="text" class="form-control @error('slider_text') is-invalid @enderror" name="slider_text" id="slider_text" />
-                              @error('slider_text')
-                                <span class="invalid-feedback" role="alert">
+                            @error('slider_text')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="name">Page Content</label>
@@ -83,10 +83,12 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Custom JS</label>
+                            <p class="text-muted">please only enter code script start and end tags will be applied automatically</p>
                             <textarea class="form-control" id="other_js" name="other_js" rows="10"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="name">Custom CSS</label>
+                            <p class="text-muted">please only enter css code start and end tags will be applied automatically</p>
                             <textarea class="form-control" id="other_css" name="other_css" rows="10"></textarea>
                         </div>
                         <div class="text-center"><button type="submit">Create Page</button></div>
